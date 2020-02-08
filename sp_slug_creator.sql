@@ -21,7 +21,12 @@ BEGIN
 	
 	PREPARE STMT FROM @_sql;
 	
-	EXECUTE STMT USING '[\\W_]{1,}', '--', '(-\\w-|-){1,}', '-';	
+	SET @a1 := '[\\W_]{1,}';
+	SET @a2 := '--';
+	SET @a3 := '(-\\w-|-){1,}';
+	SET @a4 := '-';
+	
+	EXECUTE STMT USING @a1, @a2, @a3, @a4;	
 	
 END$$
 
